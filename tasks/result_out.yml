@@ -16,7 +16,7 @@
 - name: parse config
   local_action: shell cat {{ dir_tmp }}/{{ inventory_hostname }}-{{ suffix }}.log 
                 | sed -e 's/        \"//g' -e 's/",//g' -e "1,2d"
-                | sed -e 's/^    ], //' -e 's/^    \[//' -e 's/"$//'
+                | sed -e 's/^    ], //' -e 's/^    \[//' -e 's/"$//' -e 's/\\"/\"/g'
                 | head -n -2 
                 > {{ dir_log }}/{{ inventory_hostname }}/{{ inventory_hostname }}-{{ suffix }}.log
 

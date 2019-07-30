@@ -14,8 +14,10 @@
        password: "{{ pass }}"
        host: "{{ inventory_hostname }}"
        commands:
+         - show run | inc hostname
          - show clock
          - show version
+         - show hardware
      register: result
 
    - include: tasks/result_allout.yml

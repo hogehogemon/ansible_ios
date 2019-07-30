@@ -1,9 +1,0 @@
-[cisco]
-10.76.33.11 alias=sw1 user=arris pass=arrisi en=arrisi
-10.76.33.12 alias=sw2 user=arris pass=arrisi en=arrisi
-10.76.33.13 alias=sw3 user=arris pass=arrisi en=arrisi
-
-[cisco:vars]
-dir_log=/mnt/c/temp/ansible_ios
-dir_tmp=/tmp
-
