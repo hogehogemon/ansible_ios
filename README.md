@@ -13,12 +13,16 @@ ansible_ios is a collection of ansible YML files for cisco ios. It is tested on 
 | all_shrun.yml | all        | show version<br>show hardware |
 
 ## Requirement
-
+### Ubuntu
+    
+    yum update
+    yum install ansible
+   
 ## Install
+
+    cd
     sudo -s
-    mkdir ansible_ios
-    cd ansible_ios
-    git clone git@github.com:hogehogemon/ansible_ios
+    git clone https://hogehogemon@github.com/hogehogemon/ansible_ios
     
 ## Configuration
 Modify an inventory file at /etc/ansible/hosts referring the inventory_sample. root previledge is required to modify this.
