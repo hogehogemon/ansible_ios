@@ -5,12 +5,12 @@ ansible_ios is a collection of ansible YML files for cisco ios. It is tested on 
 
 ## Description
 
-| YML file      | Output     | description    |
-----------------|------------|-----------------
-| all_shint.yml | individual | show interface status<br>show ip int brief | 
-| all_shrun.yml | individual | show run |
-| all_shrun.yml | individual | show tech-support |
-| all_shrun.yml | all        | show version<br>show hardware |
+| YML file       | Output     | description    |
+-----------------|------------|-----------------
+| all_shint.yml  | individual | show interface status<br>show ip int brief | 
+| all_shrun.yml  | individual | show run |
+| all_shtech.yml | individual | show tech-support |
+| all_shver.yml  | all        | show version<br>show hardware |
 
 ## Requirement
 ### Ubuntu
@@ -19,10 +19,11 @@ ansible_ios is a collection of ansible YML files for cisco ios. It is tested on 
     yum install ansible
    
 ## Install
+Since this is a private repository, use your account to clone.
 
     cd
     sudo -s
-    git clone https://hogehogemon@github.com/hogehogemon/ansible_ios
+    git clone https://<youraccount>@github.com/hogehogemon/ansible_ios
     
 ## Configuration
 Modify an inventory file at /etc/ansible/hosts referring the inventory_sample. root previledge is required to modify this.
