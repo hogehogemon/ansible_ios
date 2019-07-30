@@ -1,9 +1,10 @@
 [cisco]
-10.76.33.11 alias=sw1 user=arris pass=arrisi en=arrisi
-10.76.33.12 alias=sw2 user=arris pass=arrisi en=arrisi
-10.76.33.13 alias=sw3 user=arris pass=arrisi en=arrisi
+192.168.0.11 user=cisco pass=password en=password
+192.168.0.12 user=cisco pass=password en=password
+192.168.0.13 user=cisco pass=password en=password
 
 [cisco:vars]
+# Log output directory. It will be created if not exist. Below location is useful for WSL.
 dir_log=/mnt/c/temp/ansible_ios
 dir_tmp=/tmp
 
