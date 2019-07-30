@@ -1,0 +1,22 @@
+- hosts: cisco
+  vars:
+    suffix: shint
+  gather_facts: no
+  sudo: yes
+
+  tasks:
+   - name: execute command
+     local_action:
+       module: ios_command
+       authorize: yes
+       auth_pass: "{{ en }}"
+       username: "{{ user }}"
+       password: "{{ pass }}"
+       host: "{{ inventory_hostname }}"
+       commands:
+         - show clock
+         - show interface status
+         - show ip int brief
+     register: result
+
+   - include: tasks/result_out.yml

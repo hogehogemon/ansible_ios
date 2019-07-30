@@ -1,0 +1,33 @@
+# tasks/result_out.yml
+# 
+# inventory vars: 
+#   dir_tmp, dir_log
+#
+# required vars:
+#   result, suffix
+
+- name: log write out
+  local_action: template src=./tasks/template.j2 dest={{ dir_tmp }}/{{ inventory_hostname }}-{{ suffix }}.log
+
+- name: mkdir [hostname]
+  file: path={{ dir_log }}/{{ inventory_hostname }} state=directory
+  delegate_to: localhost
+
+- name: parse config
+  local_action: shell cat {{ dir_tmp }}/{{ inventory_hostname }}-{{ suffix }}.log 
+                | sed -e 's/        \"//g' -e 's/",//g' -e "1,2d"
+                | sed -e 's/^    ], //' -e 's/^    \[//' -e 's/"$//'
+                | head -n -2 
+                > {{ dir_log }}/{{ inventory_hostname }}/{{ inventory_hostname }}-{{ suffix }}.log
+
+- name: backup file by date
+  local_action: shell LOGDATE=`grep -a  "NVRAM config last updated at " {{ dir_log }}/{{ inventory_hostname }}/{{ inventory_hostname }}-{{ suffix }}.log 
+                | sed -e "s/\(.*\)NVRAM config last updated at \(.*\) by\(.*\)/\2/g" 
+                | xargs -i date +'%Y%m%d-%H%M' -d {}`
+                ; if [ date -d "$LOGDATE" &> /dev/null ]
+                ; then cp {{ dir_log }}/{{ inventory_hostname }}/{{ inventory_hostname }}-{{ suffix }}.log {{ dir_log }}/{{ inventory_hostname }}/{{ inventory_hostname }}-{{ suffix }}-$LOGDATE.log
+                ; fi
+
+
+# - name: remove logfile
+#   local_action: file path={{ dir_tmp }}/{{ inventory_hostname }}-{{ suffix }}.log state=absent
