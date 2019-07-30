@@ -87,9 +87,9 @@ For example,
     backup file by date -------------------------------------------------------------------------------------------- 1.61s
     mkdir [hostname] ----------------------------------------------------------------------------------------------- 1.50s
     
-Result will be 
+Result for 192.168.0.11 would be 
 
-    # ls -l /mnt/c/temp/ansible_ios/10.76.33.11
+    # ls -l /mnt/c/temp/ansible_ios/192.168.0.11
     total 1404
-    -rwxrwxrwx 1 test test    8969 Jul 18 15:11 10.76.33.11-shrun-20190710-1702.log
-    -rwxrwxrwx 1 test test    8968 Jul 30 16:27 10.76.33.11-shrun.log
+    -rwxrwxrwx 1 test test    8969 Jul 18 15:11 192.168.0.11-shrun-20190730-1702.log
+    -rwxrwxrwx 1 test test    8968 Jul 30 16:27 192.168.0.11-shrun.log
