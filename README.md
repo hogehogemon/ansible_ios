@@ -5,12 +5,12 @@ ansible_ios is a collection of ansible YML files for cisco ios. It is tested on 
 
 ## Description
 
-| YML file      | Output     | description    |
-----------------|------------|-----------------
+| YML file      | Output     | description                                |
+----------------|------------|---------------------------------------------
 | all_shint.yml | individual | show interface status<br>show ip int brief | 
-| all_shrun.yml | individual | show run |
-| all_shrun.yml | individual | show tech-support |
-| all_shrun.yml | all        | show version<br>show hardware |
+| all_shrun.yml | individual | show run                                   |
+| all_shrun.yml | individual | show tech-support                          |
+| all_shrun.yml | all        | show version<br>show hardware              |
 
 ## Requirement
 
